@@ -36,7 +36,8 @@ public:
         cout << " 12 - Last Element " << endl;
         cout << " 13 - Inquire Element Position " << endl;
         cout << " 14 - Delete Element " << endl;
-        cout << " 15 - Exit " << endl;
+        cout << " 15 - Find Duplicates " << endl;                 
+        cout << " 16 - Exit " << endl;                           
     }
 
     void insert_size()
@@ -289,7 +290,27 @@ public:
 
     }
 
-   
+    void find_duplicates()                      
+    {
+       for (int i = 0; i < size; i++) 
+       {
+		   bool found = false;
+            for (int j = i + 1; j < size; j++) 
+            {
+                if (array[i] == array[j] && i != j) 
+                {
+					found = true;
+                    cout << " Duplicate Element Found: " << array[i] << " At Positions " << i + 1 << " and " << j + 1 << endl;
+                    break;
+                }
+               
+			}
+            if(!found) 
+            {
+                cout << " No Duplicates Found For Element: " << array[i] << endl;
+			}   
+       }
+    }
 
     void Menu_Selection()
     {
@@ -342,6 +363,9 @@ public:
                 delete_element();
                 break;
             case 15:
+                find_duplicates();
+                break;
+            case 16:
                 cout << " Thank You For Testing My Array Project " << endl;
                 break;
             default:
@@ -349,17 +373,18 @@ public:
                 break;
             }
 
-        } while (select < 16);
-
+        } while (select < 17);
     }
 
 };
+ 
+
 int main()
 {
-
-    project OB;
-    OB.menu_selection();
-    OB.Menu_Selection();
-    system("pause>0");
-
+project OB;
+OB.menu_selection();
+OB.Menu_Selection();
+system("pause>0");
+return 0; 
 }
+    
