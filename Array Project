@@ -11,21 +11,26 @@ class project {
 
 public:
 
-    int size = 0;
-    int select = 0;
-    int position = 0;
-    int new_element = 0;
-    int look_element = 0;
-    int i = 0;
-    int sum = 0;
-    int array[];
+    	int size = 0;
+    	int select = 0;
+    	int position = 0;
+    	int new_element = 0;
+   	int look_element = 0;
+   	int i = 0;
+    	int sum = 0;
+	int j = 0;
+	int postive = 0;
+	int negative = 0;
+	int even = 0;
+	int odd = 0;
+    	int array[];
 
     void menu_selection()
     {
         cout << " 1 - Enter The Size Of Array " << endl;
         cout << " 2 - current List " << endl;
         cout << " 3 - Insert A New Element " << endl;
-        cout << " 4 - Sort List In Acsending Order " << endl;
+        cout << " 4 - Sort List In Ascending Order " << endl;
         cout << " 5 - Sort list In Descending Order " << endl;
         cout << " 6 - Maximum Element " << endl;
         cout << " 7 - Minimum Element " << endl;
@@ -36,8 +41,9 @@ public:
         cout << " 12 - Last Element " << endl;
         cout << " 13 - Inquire Element Position " << endl;
         cout << " 14 - Delete Element " << endl;
-        cout << " 15 - Find Duplicates " << endl;                 
-        cout << " 16 - Exit " << endl;                           
+        cout << " 15 - Find Duplicates " << endl;
+	cout << " 16 - Even Odd Positive Negative " << endl;
+        cout << " 17 - Exit " << endl;                           
     }
 
     void insert_size()
@@ -169,7 +175,7 @@ public:
     double calculate_sum() 
     {
         double s = 0.0;
-        for (int j = 0;j < size; ++j)
+        for  (j = 0;j < size; ++j)
             s += array[j];
         return s;
     }
@@ -294,12 +300,12 @@ public:
     {
        for (int i = 0; i < size; i++) 
        {
-		   bool found = false;
+		 bool found = false;
             for (int j = i + 1; j < size; j++) 
             {
                 if (array[i] == array[j] && i != j) 
                 {
-					found = true;
+			found = true;
                     cout << " Duplicate Element Found: " << array[i] << " At Positions " << i + 1 << " and " << j + 1 << endl;
                     break;
                 }
@@ -311,6 +317,29 @@ public:
 			}   
        }
     }
+    void Even_odd_postitve_negative() 
+    {
+		cout << " You Selected Even Odd Positive Negative Option :" << endl;
+                for (i = 0; ; i++)
+        {
+		if (i == size) break;
+		cout << " The Current List :" << end
+		cout << array[i] << endl;
+
+            if (array[i] > 0)
+                postive++;
+            else if (array[i] < 0)
+                negative++;
+            if (array[i] % 2 == 0)
+                even++;
+            else
+                odd++;
+        }
+        cout << " The Number Of Positive Elements Is : " << postive << endl;
+        cout << " The Number Of Negative Elements Is : " << negative << endl;
+        cout << " The Number Of Even Elements Is : " << even << endl;
+	cout << " The Number Of Odd Elements Is : " << odd << endl;
+    }
 
     void Menu_Selection()
     {
@@ -319,61 +348,64 @@ public:
             cin >> select;
             switch (select)
             {
-            case 1:
+            	case 1:
                 insert_size();
                 insert_values();
                 break;
-            case 2:
+            	case 2:
                 current_List();
                 break;
-            case 3:
+            	case 3:
                 insert_atanyposition();
                 break;
-            case 4:
+            	case 4:
                 Sort_Array();
                 break;
-            case 5:
+            	case 5:
                 Sort_Arr();
                 break;
-            case 6:
+            	case 6:
                 get_max();
                 break;
-            case 7:
+            	case 7:
                 get_min();
                 break;
-            case 8:
+            	case 8:
                 get_average();
                 break;
-            case 9:
+            	case 9:
                 sum_elements();
                 break;
-            case 10:
+            	case 10:
                 get_firstelement();
                 break;
-            case 11:
+            	case 11:
                 get_middleelement();
                 break;
-            case 12:
+            	case 12:
                 last_element();
                 break;
-            case 13:
+            	case 13:
                 inquire_elementposition();
                 break;
-            case 14:
+            	case 14:
                 delete_element();
                 break;
-            case 15:
+            	case 15:
                 find_duplicates();
                 break;
-            case 16:
+            	case 16:
+		Even_odd_postitve_negative();   
+                break;
+		case 17:
                 cout << " Thank You For Testing My Array Project " << endl;
                 break;
-            default:
+            	default:
                 cout << " Invalid Option Please Re-run My Project " << endl;
                 break;
             }
 
-        } while (select < 17);
+        } while (select < 18);
     }
 
 };
